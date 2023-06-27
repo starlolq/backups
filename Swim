@@ -1,15 +1,11 @@
 ---@diagnostic disable: deprecated, undefined-global
 getgenv().swimhub_settings = {
-    safemode = true, -- anti AC detection with universal
+    safemode = false, -- anti AC detection with universal
     nohookdetection = false, -- no index/newindex/namecall detections
     verbosemode = true -- prints current loading state
 }
-if game.GameId == 450749276 then
-    getgenv().swimhub_settings.safemode = true
-end
-local title = 'protogen.gay cracked'
-local ispremium = true
-do
+        ispremium = true
+        title = 'protogen.gay wipe edition'
     if getgenv().swimhub_settings == nil then
     getgenv().swimhub_settings = {
         safemode = false, -- anti AC detection with universal
