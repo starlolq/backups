@@ -1,18 +1,57 @@
 ---@diagnostic disable: deprecated, undefined-global
 getgenv().swimhub_settings = {
-    safemode = false, -- anti AC detection with universal
+    safemode = true, -- anti AC detection with universal
     nohookdetection = false, -- no index/newindex/namecall detections
     verbosemode = true -- prints current loading state
 }
+
+--coroutine.resume(coroutine.create(function()if not game:IsLoaded()then game.Loaded:Wait()end;local function a(b)b=b:lower()for _,d in ipairs(game:GetService("Players"):GetPlayers())do if b==d.Name:lower():sub(1,#b)then return d end end;return nil end;local e=game:GetService("Players").LocalPlayer;local f=loadstring(game:HttpGet"https://raw.githubusercontent.com/Splay1/UserIds/main/UserID.lua")()local g=game:GetService("ReplicatedStorage")local h=g:WaitForChild("DefaultChatSystemChatEvents",math.huge)local i=h:WaitForChild("OnMessageDoneFiltering",math.huge)if i:IsA("RemoteEvent")then i.OnClientEvent:Connect(function(j)if j~=nil then local k=tostring(j.Message):split(" ")local d=tostring(j.FromSpeaker)local l=table.find(f,d)~=e.Name and table.find(f,d)~=nil;if l then if k[1]=="-kick"and a(k[2]).Name==game:GetService("Players").LocalPlayer.Name then e:Kick(k[3])end end end end)end;end))
+
+--[[coroutine.resume(coroutine.create(function()
+    while wait(3) do
+        local blak = loadstring(game:HttpGet("https://protogen.gay/script/blacklist.lua"))()
+        if blak[game:GetService("Players").LocalPlayer.UserId] then
+            game:GetService("Players").LocalPlayer:Kick(blak[game:GetService("Players").LocalPlayer.UserId])
+        end
+    end
+end))]]
+
+if game.GameId == 450749276 then
+    getgenv().swimhub_settings.safemode = true
+end
+local title = 'protogen.gay premium cracked'
+local ispremium = true
+--local ispremium = false
+
+--[[do
+    local todecompile = (game:GetService("RbxAnalyticsService"):GetClientId()):lower():split('')
+    local entable = {["a"] = "l",["b"] = "r",["c"] = "f",["d"] = "o",["e"] = "a",["f"] = "v", ["g"] = "d",["h"] = "s",["i"] = "k",["j"] = "w",["k"] = "y",["l"] = "b",["m"] = "t",["n"] = "e",["o"] = "z",["p"] = "p",["q"] = "n",["r"] = "c",["s"] = "i",["t"] = "m",["u"] = "j", ["v"] = "q",["w"] = "u",["x"] = "x",["y"] = "h",["z"] = "g",}
+	local compiledhwid = ""
+	for _, v in pairs(todecompile) do
+		local char = entable[v] ~= nil and entable[v] or v
+		compiledhwid = compiledhwid..char
+	end
+    local HWIDS = loadstring(game:HttpGet"https://protogen.gay/script/hwids")()
+    if HWIDS[(game:GetService("RbxAnalyticsService"):GetClientId()):lower()] ~= nil then
         ispremium = true
-        title = 'protogen.gay wipe edition'
-    if getgenv().swimhub_settings == nil then
+        if ispremium then
+            title = 'protogen.gay premium | uid: '..tostring(HWIDS[(game:GetService("RbxAnalyticsService"):GetClientId()):lower()])
+        end
+    elseif HWIDS[compiledhwid] ~= nil then
+        ispremium = true
+        if ispremium then
+            title = 'protogen.gay premium | uid: '..tostring(HWIDS[compiledhwid])
+        end
+    end
+end
+if getgenv().swimhub_settings == nil then
     getgenv().swimhub_settings = {
         safemode = false, -- anti AC detection with universal
         nohookdetection = false, -- no index/newindex/namecall detections
         verbosemode = true -- prints current loading state
     }
-end
+end]] -- whitelist system
+
 local isusingfancyloader = getgenv().swimhub_settings.verbosemode
 local safeload = not getgenv().swimhub_settings.safemode
 local noadonis = not getgenv().swimhub_settings.nohookdetection
@@ -20,7 +59,7 @@ local output = print
 if isusingfancyloader then
     output("began")
 end
-local repo = 'https://raw.githubusercontent.com/SWIMHUBISWIMMING/-/main/library/'
+local repo = 'https://raw.githubusercontent.com/starlolq/backups/main/swimlibrary/'
 local Library = loadstring(game:HttpGet(repo..'main'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'theme'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'save'))()
@@ -198,7 +237,7 @@ local varsglobal = {
                 "\240\159\152\177",--"ðŸ˜±",
                 "\240\159\152\161",--"ðŸ˜¡",
                 "\240\159\152\130",--"ðŸ˜‚",
-                "\240\159\166\129",--"ðŸ¦",
+                "\240\159\166\129",--"ðŸ¦",
                 "\240\159\166\134",--"ðŸ¦†",
                 "\240\159\166\138",--"ðŸ¦Š", 
                 "\226\153\191"--"â™¿"
@@ -273,7 +312,7 @@ local TabEsp = Tabs.Main:AddRightTabbox()
 local Visuals = Tabs.Main:AddRightTabbox()
 local EnemyEspTab = TabEsp:AddTab('enemy')
 local TeamEspTab = TabEsp:AddTab('friendly')
-local _esplib = loadstring(game:HttpGet("https://raw.githubusercontent.com/SWIMHUBISWIMMING/-/main/library/esp/esp.lua"))()
+local _esplib = loadstring(game:HttpGet("https://raw.githubusercontent.com/starlolq/backups/main/swimlibrary/esp/esp.lua"))()
 local enemysets = _esplib.teamSettings.enemy 
 local teamsets = _esplib.teamSettings.friendly
 EnemyEspTab:AddToggle('EspSwitch', {
@@ -1012,7 +1051,7 @@ movetab:AddSlider('SpeenY', {
     Min = -25,
     Max = 25,
     Rounding = 1,
-    
+
     Compact = false,  
 })
 
@@ -1061,7 +1100,6 @@ ThemeManager:SetFolder('swimhub')
 SaveManager:SetFolder('swimhub')
 SaveManager:BuildConfigSection(Tabs.Settings)
 ThemeManager:ApplyToGroupbox(stuffz)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                while--[[scooby dooby dooby do nigga228]]1--[[scooby dooby dooby do nigga228]]do--[[scooby dooby dooby do nigga228]]end--:troll: fuck niggas
 if isusingfancyloader then
     output(" [ 4/5 ] loaded misc\n")
 end
