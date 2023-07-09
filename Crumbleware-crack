@@ -330,7 +330,7 @@ return (function(...)
 		local g = Library:CreateWindow({
 			Title = ("Crumbleware | v" .. CrumbleWare .. " | Beta"),
 			Center = true,
-			AutoShow = false
+			AutoShow = true
 		});
 		local T = {
 			Combat = g:AddTab("Combat"),
